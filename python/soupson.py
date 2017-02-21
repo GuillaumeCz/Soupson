@@ -5,8 +5,7 @@ import requests
 from bs4 import BeautifulSoup
 
 """
-Gros test avec GIT, branch else
-
+Gros test avec GIT, branch 
 """
 
 print "Bonjour ! Voici les soupes de la semaine :"
