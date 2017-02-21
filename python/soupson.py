@@ -4,6 +4,13 @@ import sys
 import requests
 from bs4 import BeautifulSoup
 
+"""
+Gros test avec GIT, branch else
+
+"""
+
+print "Bonjour ! Voici les soupes de la semaine :"
+
 if len(sys.argv)>1:
 	arg = sys.argv[1] 
 	if  arg == "eng":
