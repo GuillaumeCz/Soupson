@@ -9,6 +9,7 @@ Gros test avec GIT
 
 """
 
+print "Bonjour ! Voici les soupes de la semaine :"
 
 if len(sys.argv)>1:
 	arg = sys.argv[1] 
