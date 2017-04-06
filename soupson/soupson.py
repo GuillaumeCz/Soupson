@@ -5,10 +5,16 @@ import requests
 from bs4 import BeautifulSoup
 import argparse
 
-print "Bonjour ! Voici les soupes de la semaine :"
 
-def display_menu(url="fr", filename=None):
+def display_menu(lang="fr", filename=None):
 
+    if lang == "fr":
+        url = "http://www.soupson.ca"
+        print "Bonjour ! Voici les soupes de la semaine :\n\n"
+    elif lang == "eng":
+        url = "http://www.soupson.ca?lang=en"
+        print "Hello ! This week's soups are :\n\n"
+      
     soup = BeautifulSoup(requests.get(url).text, "lxml")
 
     menu = ""
@@ -23,16 +29,13 @@ def display_menu(url="fr", filename=None):
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("-l","--language" ,help="Language to display")
+    parser.add_argument("-l","--language" ,help="Language to display ['eng' or 'fr']")
     parser.add_argument("-f", "--filename", help="output file")
     args = parser.parse_args()
-
     if args.language is not None:
-        if args.language == "eng":
-            url =  "http://www.soupson.ca/?lang=en"
-        elif args.language == "fr":
-            url =  "http://www.soupson.ca"
-        display_menu(url, args.filename)
+        display_menu(args.language,args.filename)
+    else:
+        display_menu(filename=args.filename)
 
 if __name__ == '__main__':
     main()
